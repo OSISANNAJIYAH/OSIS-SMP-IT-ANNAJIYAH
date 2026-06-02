@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OSIS ANNAJIAH</title>
+
+    <!-- Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Feather Icon -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+
+    <!-- My Style -->
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <div id="particles-js"></div>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>OSIS</span> ANNAJIYAH
+        </div>
+
+        <nav class="nav-menu" id="navMenu">
+
+            <a href="index.html">Home</a>
+            <a href="index.html#visi">Tentang</a>
+            <a href="index.html#menu">Bidang</a>
+            <a href="struktur.html">Struktur Organisasi</a>
+            <a href="index.html#contact">Kontak</a>
+            <a href="dokumentasi.html">Dokumentasi</a>
+            <a href="voting.html">Voting Ketua Osis</a>
+
+        </nav>
+
+        <div class="menu-btn" id="menuBtn">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+    </header>
+    <!-- Navbar End -->
+
+
+
+    <!-- POPUP -->
+
+    <div class="popup" id="popup">
+
+        <div class="popup-content">
+
+            <span class="close" onclick="closePopup()">&times;</span>
+
+            <img id="popup-img" src="">
+
+            <h2 id="popup-name"></h2>
+
+            <h3 id="popup-role"></h3>
+
+            <p id="popup-desc"></p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <!-- CARD 1 -->
+        <section id="menu" class="menu">
+
+            <h2><span>Anggota Bidang</span> Kebersihan Dan Kesehatan</h2>
+
+            <p></p>
+
+            <div class="row">
+
+                <!-- CARD 1 -->
+                <div class="menu-card" onclick="openPopup(
+    'img/siswa/gezag.jpeg',
+    'MMuhammad Gezag Al-Ghifar',
+    'ANGGOTA',
+    'Anggota Kebersihan Dan Kesehatan yang aktif membantu kegiatan OSIS.'
+    )">
+
+                    <img src="img/siswa/siswa/gazag.png" alt="Ketua" class="menu-card-img">
+
+                    <h3 class="ketua">ANGGOTA</h3>
+
+                    <h3 class="menu-card-title">
+                        - Muhammad Gezag Al-Ghifari -
+                    </h3>
+
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="menu-card" onclick="openPopup(
+    'img/siswa/RAFA 1.png',
+    'Muhammad Rafa Baihaqi Anshory',
+    'KETUA',
+    'Ketua bidang Kebersihan Dan Kesehatan yang bertanggung jawab pada kegiatan islami sekolah'
+    )">
+
+                    <img src="img/siswa/siswa/rafa.png" alt="Anggota" class="menu-card-img">
+
+                    <h3 class="ketua">KETUA</h3>
+
+                    <h3 class="menu-card-title">
+                        - Muhammad Rafa Baihaqi Anshory -
+                    </h3>
+
+                </div>
+
+                <!-- CARD 1 -->
+                <div class="menu-card" onclick="openPopup(
+    'img/siswa/adit.jpeg',
+    'Muhammad Raditya Saputra',
+    'ANGGOTA',
+    'Anggota bidang Kebersihan Dan Kesehatan yang aktif membantu kegiatan OSIS.'
+    )">
+
+                    <img src="img/siswa/siswa/adit.png" alt="Ketua" class="menu-card-img">
+
+                    <h3 class="ketua">ANGGOTA</h3>
+
+                    <h3 class="menu-card-title">
+                        - Muhammad Raditya Saputra -
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <!-- PARTICLE GLOW -->
+
+            <div class="footer-glow"></div>
+
+            <div class="footer-container">
+
+                <!-- BRAND -->
+
+                <div class="footer-box">
+
+                    <h2>OSIS <span>ANNAJIYAH</span></h2>
+
+                    <p>
+                        Organisasi siswa yang kreatif, aktif,
+                        islami, dan siap membangun sekolah
+                        yang lebih maju dan menyenangkan.
+                    </p>
+
+                </div>
+
+                <!-- MENU -->
+
+                <div class="footer-box">
+
+                    <h3>Menu</h3>
+
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">Tentang</a>
+                    <a href="index.html#menu">Bidang</a>
+                    <a href="index.html#contact">Kontak</a>
+
+                </div>
+
+                <!-- SOSIAL -->
+
+                <div class="footer-box">
+
+                    <h3>Sosial Media</h3>
+
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">WhatsApp</a>
+
+                </div>
+
+                <!-- KONTAK -->
+
+                <div class="footer-box">
+
+                    <h3>Kontak</h3>
+
+                    <p>Email : xxxxxxxxxxxx@gmail.com</p>
+                    <p>Telp : 08xxxxxxxxxx</p>
+                    <p>Alamat : SMP IT Annajiyah</p>
+
+                </div>
+
+            </div>
+
+            <!-- COPYRIGHT -->
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 OSIS Annajiyah | Created By Alrifatih
+                </p>
+
+            </div>
+
+        </footer>
+
+
+        <!-- Feather Icon -->
+        <script>
+            feather.replace();
+        </script>
+
+        <!-- My Javascript -->
+        <script src="script.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+        <script>
+            tsParticles.load("particles-js", {
+
+                fpsLimit: 60,
+
+                particles: {
+
+                    number: {
+                        value: 80
+                    },
+
+                    color: {
+                        value: "#38bdf8"
+                    },
+
+                    links: {
+                        enable: true,
+                        color: "#38bdf8",
+                        distance: 150,
+                        opacity: 0.3
+                    },
+
+                    move: {
+                        enable: true,
+                        speed: 2
+                    },
+
+                    size: {
+                        value: 3
+                    },
+
+                    opacity: {
+                        value: 0.5
+                    }
+
+                },
+
+                interactivity: {
+
+                    events: {
+
+                        onHover: {
+                            enable: true,
+                            mode: "repulse"
+                        }
+
+                    }
+
+                }
+
+            });
+        </script>
+
+</body>
+
+
+</html>
