@@ -247,6 +247,28 @@ html, body{
 
 }
 
+
+
+@media (max-width:768px){
+
+    .hero{
+    background-image: url('img/0.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    min-height: 90.4vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    animation: zoomBg 15s ease-in-out infinite alternate;
+    }
+
+}
+
+
 /* Overlay Gelap */
 
 .hero .overlay {
