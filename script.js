@@ -331,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================
 
     const endVoteDate =
-        new Date(2026, 4, 1, 12, 0, 0);
+        new Date(2026, 9, 1, 12, 0, 0);
 
     const now = new Date();
 
