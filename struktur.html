@@ -1,33 +1,32 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OSIS ANNAJIAH</title>
-
-    <!-- Fonts -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Struktur Organisasi OSIS SMP IT Annajiyah">
+    <title>Struktur Organisasi | OSIS Annajiyah</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Feather Icon -->
-    <script src="https://unpkg.com/feather-icons"></script>
-
-
-    <!-- My Style -->
-
+    <link rel="stylesheet" href="struktur-modern.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
+    <div id="struktur-loading" aria-label="Memuat struktur organisasi">
+        <div class="loading-box">
+            <div class="loading-ring"></div>
+            <strong>Memuat Struktur Organisasi</strong>
+            <span>Mengambil data pengurus terbaru...</span>
+        </div>
+    </div>
 
     <div id="particles-js"></div>
+    <div class="bg-animation"></div>
 
-
-    <!-- NAVBAR -->
+<!-- NAVBAR -->
 
     <header class="navbar">
 
@@ -58,248 +57,89 @@
     </header>
     <!-- Navbar End -->
 
+    <main>
+        <section class="heroooo">
+            <h1>Struktur <span>Organisasi</span></h1>
+            <p>
+                Struktur organisasi OSIS SMP IT Annajiyah yang kreatif,
+                aktif, dan siap membangun sekolah yang lebih baik.
+            </p>
+        </section>
 
-    <!-- BACKGROUND -->
-
-    <div class="bg-animation">
-
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </div>
-
-    <!-- HERO -->
-
-    <section class="heroooo">
-
-        <h1>Struktur <span>Organisasi</span></h1>
-
-        <p>
-            Struktur organisasi OSIS SMP IT Annajiyah yang kreatif,
-            aktif, dan siap membangun sekolah yang lebih baik.
-        </p>
-
-    </section>
-
-    <!-- STRUKTUR -->
-
-    <section class="container">
-
-        <!-- KETUA -->
-
-        <div class="card">
-
-            <img src="img/siswa/dafa.jpeg">
-
-            <h2>Muhammad Daffa Alzahron</h2>
-
-            <div class="jabatan">KETUA OSIS</div>
-
-            <div class="desc">
-                Memimpin seluruh kegiatan OSIS dan menjadi teladan
-                bagi seluruh anggota.
+        <section class="container">
+            <div class="card">
+                <img id="ketua-foto" src="img/siswa/dafa.jpeg" alt="Foto Ketua OSIS">
+                <h2 id="ketua-nama">Muhammad Daffa Alzahron</h2>
+                <div class="jabatan" id="ketua-jabatan">KETUA OSIS</div>
+                <div class="desc" id="ketua-desc">
+                    Memimpin seluruh kegiatan OSIS dan menjadi teladan bagi seluruh anggota.
+                </div>
             </div>
 
-        </div>
+            <div class="line"></div>
 
-        <div class="line"></div>
-
-        <!-- PENGURUS -->
-
-        <div class="row">
-
-            <div class="card">
-
-                <img src="img/siswa/gibran 1.png">
-
-                <h2>Gibran Ramadhan Altabi</h2>
-
-                <div class="jabatan">WAKIL KETUA</div>
-
-                <div class="desc">
-                    Membantu ketua dalam menjalankan program kerja OSIS.
+            <div class="row">
+                <div class="card">
+                    <img id="wakil-foto" src="img/siswa/gibran 1.png" alt="Foto Wakil Ketua">
+                    <h2 id="wakil-nama">Gibran Ramadhan Altabi</h2>
+                    <div class="jabatan" id="wakil-jabatan">WAKIL KETUA</div>
+                    <div class="desc" id="wakil-desc">Membantu ketua dalam menjalankan program kerja OSIS.</div>
                 </div>
 
-            </div>
-
-            <div class="card">
-
-                <img src="img/siswa/arief.jpeg">
-
-                <h2>Arief Furqan</h2>
-
-                <div class="jabatan">SEKRETARIS</div>
-
-                <div class="desc">
-                    Mengatur administrasi dan dokumentasi organisasi.
+                <div class="card">
+                    <img id="sekretaris-foto" src="img/siswa/arief.jpeg" alt="Foto Sekretaris">
+                    <h2 id="sekretaris-nama">Sekretaris OSIS</h2>
+                    <div class="jabatan" id="sekretaris-jabatan">SEKRETARIS</div>
+                    <div class="desc" id="sekretaris-desc">Mengelola administrasi dan dokumentasi organisasi OSIS.</div>
                 </div>
 
-            </div>
-
-            <div class="card">
-
-                <img src="img/siswa/ihsan 1.png">
-
-                <h2>Muhammad Ihsan Marbun</h2>
-
-                <div class="jabatan">BENDAHARA</div>
-
-                <div class="desc">
-                    Mengelola keuangan dan kebutuhan kegiatan OSIS.
+                <div class="card">
+                    <img id="bendahara-foto" src="img/siswa/ihsan 1.png" alt="Foto Bendahara">
+                    <h2 id="bendahara-nama">Muhammad Ihsan Marbun</h2>
+                    <div class="jabatan" id="bendahara-jabatan">BENDAHARA</div>
+                    <div class="desc" id="bendahara-desc">Mengelola keuangan dan kebutuhan kegiatan OSIS.</div>
                 </div>
-
             </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- FOOTER -->
+        </section>
+    </main>
 
     <footer class="footer">
-
-        <!-- PARTICLE GLOW -->
-
         <div class="footer-glow"></div>
-
         <div class="footer-container">
-
-            <!-- BRAND -->
-
             <div class="footer-box">
-
                 <h2>OSIS <span>ANNAJIYAH</span></h2>
-
-                <p>
-                    Organisasi siswa yang kreatif, aktif,
-                    islami, dan siap membangun sekolah
-                    yang lebih maju dan menyenangkan.
-                </p>
-
+                <p>Organisasi siswa yang kreatif, aktif, islami, dan siap membangun sekolah yang lebih maju dan menyenangkan.</p>
             </div>
-
-            <!-- MENU -->
-
             <div class="footer-box">
-
                 <h3>Menu</h3>
-
                 <a href="index.html">Home</a>
-                <a href="index.html#about">Tentang</a>
+                <a href="index.html#visi">Tentang</a>
                 <a href="index.html#menu">Bidang</a>
                 <a href="index.html#contact">Kontak</a>
-
             </div>
-
-            <!-- SOSIAL -->
-
             <div class="footer-box">
-
                 <h3>Sosial Media</h3>
-
                 <a href="#">Instagram</a>
                 <a href="#">TikTok</a>
                 <a href="#">YouTube</a>
                 <a href="#">WhatsApp</a>
-
             </div>
-
-            <!-- KONTAK -->
-
             <div class="footer-box">
-
                 <h3>Kontak</h3>
-
                 <p>Email : xxxxxxxxxxxx@gmail.com</p>
                 <p>Telp : 08xxxxxxxxxx</p>
                 <p>Alamat : SMP IT Annajiyah</p>
-
             </div>
-
         </div>
-
-        <!-- COPYRIGHT -->
-
         <div class="footer-bottom">
-
-            <p>
-                © 2026 OSIS Annajiyah | Created By Alrifatih
-            </p>
-
+            © 2026 OSIS Annajiyah | Created By Alrifatih
         </div>
-
     </footer>
 
-
-    <!-- Feather Icon -->
-    <script>
-        feather.replace();
-    </script>
-
-    <!-- My Javascript -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="struktur.js"></script>
     <script src="script.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-
-    <script>
-        tsParticles.load("particles-js", {
-
-            fpsLimit: 60,
-
-            particles: {
-
-                number: {
-                    value: 80
-                },
-
-                color: {
-                    value: "#38bdf8"
-                },
-
-                links: {
-                    enable: true,
-                    color: "#38bdf8",
-                    distance: 150,
-                    opacity: 0.3
-                },
-
-                move: {
-                    enable: true,
-                    speed: 2
-                },
-
-                size: {
-                    value: 3
-                },
-
-                opacity: {
-                    value: 0.5
-                }
-
-            },
-
-            interactivity: {
-
-                events: {
-
-                    onHover: {
-                        enable: true,
-                        mode: "repulse"
-                    }
-
-                }
-
-            }
-
-        });
-    </script>
-
 </body>
-
-
 </html>

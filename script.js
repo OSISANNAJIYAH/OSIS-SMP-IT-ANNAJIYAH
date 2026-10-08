@@ -254,350 +254,7 @@ cards.forEach(card => {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    const ctx = document.getElementById("chart");
-
-    if (!ctx) return;
-
-    // =========================
-    // CHART
-    // =========================
-
-    let votes = [0, 0, 0];
-
-    const chart = new Chart(ctx, {
-
-        type: "doughnut",
-
-        data: {
-            labels: [
-                "Anonymous",
-                "Anonymous",
-                "Anonymous"
-            ],
-
-            datasets: [{
-                data: votes,
-
-                backgroundColor: [
-                    "#3b82f6",
-                    "#9333ea",
-                    "#06b6d4"
-                ],
-
-                borderWidth: 0
-            }]
-        },
-
-        options: {
-
-            responsive: true,
-
-            animation: {
-
-                animateRotate: true,
-
-                animateScale: true,
-
-                duration: 1200
-
-            },
-
-            plugins: {
-
-                legend: {
-
-                    labels: {
-                        color: "white"
-                    }
-
-                }
-
-            }
-
-        }
-
-    });
-
-    // =========================
-    // FIREBASE
-    // =========================
-
-    const voteRef = database.ref("votes");
-
-    // =========================
-    // WAKTU VOTING
-    // =========================
-
-    const endVoteDate =
-        new Date(2026, 4, 1, 12, 0, 0);
-
-    const now = new Date();
-
-    const statusText =
-        document.getElementById("vote-status");
-
-    const isVoteClosed =
-        now > endVoteDate;
-
-    // format tanggal indonesia
-    const tanggal =
-        endVoteDate.toLocaleString("id-ID", {
-
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-
-            hour: "2-digit",
-            minute: "2-digit"
-
-        });
-
-    if (statusText) {
-
-        if (isVoteClosed) {
-
-            statusText.innerHTML =
-                `🔒 Voting ditutup pada ${tanggal}`;
-
-        } else {
-
-            statusText.innerHTML =
-                `🟢 Voting dibuka sampai ${tanggal}`;
-
-        }
-
-    }
-
-
-    // =========================
-    // BUTTON VOTE
-    // =========================
-
-    const buttons =
-        document.querySelectorAll(".vote-btn");
-
-    buttons.forEach(button => {
-
-        // jika voting ditutup
-        if (isVoteClosed) {
-
-            button.disabled = true;
-
-            button.innerText =
-                "Voting Ditutup";
-
-            button.style.opacity = "0.6";
-
-            button.style.cursor =
-                "not-allowed";
-
-        }
-
-        button.addEventListener("click", () => {
-
-            // cek voting ditutup
-            if (isVoteClosed) {
-
-                alert("Voting sudah ditutup!");
-
-                return;
-
-            }
-
-            // cek sudah voting
-            if (localStorage.getItem("hasVoted")) {
-
-                alert("Kamu sudah voting!");
-
-                return;
-
-            }
-
-            const index =
-                button.dataset.index;
-
-            votes[index]++;
-
-            voteRef.set(votes);
-
-            localStorage.setItem(
-                "hasVoted",
-                "true"
-            );
-
-            alert("Voting berhasil!");
-
-        });
-    });
-
-    // =========================
-    // RESET KHUSUS ADMIN
-    // =========================
-
-    const adminResetBtn =
-        document.getElementById("admin-reset-btn");
-
-    if (adminResetBtn) {
-
-        adminResetBtn.addEventListener("click", () => {
-
-            const password =
-                prompt("Masukkan password admin:");
-
-            const adminPassword =
-                "osis2026";
-
-            if (password !== adminPassword) {
-
-                alert("Password salah!");
-
-                return;
-
-            }
-
-            const konfirmasi =
-                confirm("Yakin ingin reset semua vote?");
-
-            if (!konfirmasi) return;
-
-            voteRef.set([0, 0, 0]);
-
-            localStorage.removeItem("hasVoted");
-
-            alert("Semua voting berhasil direset!");
-
-        });
-
-    }
-
-    voteRef.on("value", (snapshot) => {
-
-        const data = snapshot.val();
-
-        if (data) {
-
-            votes = [
-                data[0] || 0,
-                data[1] || 0,
-                data[2] || 0
-            ];
-
-            chart.data.datasets[0].data = votes;
-
-            chart.update();
-
-            document.getElementById("vote1")
-                .innerText = votes[0];
-
-            document.getElementById("vote2")
-                .innerText = votes[1];
-
-            document.getElementById("vote3")
-                .innerText = votes[2];
-
-            // animasi realtime
-            const resultBox =
-                document.querySelector(".result-box");
-
-            if (resultBox) {
-
-                resultBox.classList.add("vote-pop");
-
-                setTimeout(() => {
-
-                    resultBox.classList.remove("vote-pop");
-
-                }, 500);
-
-            }
-
-            setTimeout(() => {
-
-                document.querySelector(".result-box")
-                    .classList.remove("vote-pop");
-
-            }, 500);
-
-            // =========================
-            // UPDATE PERSEN
-            // =========================
-
-            const total =
-                votes[0] + votes[1] + votes[2];
-
-            const percent1 =
-                total ? (votes[0] / total) * 100 : 0;
-
-            const percent2 =
-                total ? (votes[1] / total) * 100 : 0;
-
-            const percent3 =
-                total ? (votes[2] / total) * 100 : 0;
-
-            // width progress
-            document.querySelector(".fill1")
-                .style.width = percent1 + "%";
-
-            document.querySelector(".fill2")
-                .style.width = percent2 + "%";
-
-            document.querySelector(".fill3")
-                .style.width = percent3 + "%";
-
-            // text persen
-            document.getElementById("percent1")
-                .innerText = percent1.toFixed(1) + "%";
-
-            document.getElementById("percent2")
-                .innerText = percent2.toFixed(1) + "%";
-
-            document.getElementById("percent3")
-                .innerText = percent3.toFixed(1) + "%";
-
-            // =========================
-            // KANDIDAT TERUNGGUL
-            // =========================
-
-            const cards =
-                document.querySelectorAll(".candidate-card");
-
-            // reset semua
-            cards.forEach(card => {
-                card.classList.remove("leading");
-            });
-
-            // cari vote terbesar
-            const maxVote =
-                Math.max(...votes);
-
-            // jika ada vote
-            if (maxVote > 0) {
-
-                votes.forEach((vote, index) => {
-
-                    if (vote === maxVote && cards[index]) {
-
-                        cards[index].classList.add("leading");
-
-                    }
-
-                });
-
-            }
-
-        }
-
-    });
-
-});
-
-
-
-
-
-
+/* VOTING SYSTEM DIPINDAHKAN KE voting.js */
 
 
 // AOS ANIMATION
@@ -1568,6 +1225,180 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
+
+/* =========================================
+   WEBSITE CONTENT
+   VISI & MISI
+========================================= */
+
+/* =========================================
+   WEBSITE CONTENT
+   VISI & MISI
+========================================= */
+
+function loadVisiMisi() {
+
+    const visiText =
+        document.getElementById("visi-text");
+
+    const misiList =
+        document.getElementById("misi-list");
+
+
+    /*
+       Pastikan elemen tersedia.
+    */
+
+    if (!visiText || !misiList) {
+        return;
+    }
+
+
+    /*
+       Ambil data dari Firebase.
+    */
+
+    database
+        .ref("website/visiMisi")
+        .once("value")
+
+        .then((snapshot) => {
+
+            const data =
+                snapshot.val();
+
+
+            /*
+               Jika belum ada data,
+               gunakan HTML bawaan.
+            */
+
+            if (!data) {
+                return;
+            }
+
+
+            /* =========================
+               VISI
+            ========================== */
+
+            if (data.visi) {
+
+                visiText.textContent =
+                    data.visi;
+
+            }
+
+
+            /* =========================
+               MISI
+            ========================== */
+
+            if (data.misi) {
+
+                /*
+                   Normalisasi enter Windows
+                   menjadi enter biasa.
+                */
+
+                const misiText =
+                    String(data.misi)
+                        .replace(/\r\n/g, "\n")
+                        .replace(/\r/g, "\n")
+                        .trim();
+
+
+                /*
+                   Pisahkan setiap Misi berdasarkan
+                   nomor:
+
+                   1.
+                   2.
+                   3.
+                   4.
+                   5.
+
+                   Jadi tidak harus ada
+                   baris kosong.
+                */
+
+                let missions =
+                    misiText
+                        .split(/\n(?=\s*\d+\.\s+)/)
+                        .map(item => item.trim())
+                        .filter(Boolean);
+
+
+                /*
+                   Kalau ternyata semua Misi
+                   masih berada dalam satu baris,
+                   coba pisahkan berdasarkan nomor.
+                */
+
+                if (missions.length === 1) {
+
+                    const fallback =
+                        misiText
+                            .split(/(?=\d+\.\s+)/)
+                            .map(item => item.trim())
+                            .filter(Boolean);
+
+                    if (fallback.length > 1) {
+                        missions = fallback;
+                    }
+
+                }
+
+
+                /*
+                   Bersihkan daftar lama.
+                */
+
+                misiList.innerHTML = "";
+
+
+                /*
+                   Buat setiap Misi menjadi
+                   <li> terpisah.
+                */
+
+                missions.forEach((mission) => {
+
+                    const li =
+                        document.createElement("li");
+
+
+                    li.textContent =
+                        mission;
+
+
+                    misiList.appendChild(li);
+
+                });
+
+            }
+
+        })
+
+        .catch((error) => {
+
+            console.error(
+                "Gagal memuat Visi & Misi:",
+                error
+            );
+
+        });
+
+}
+
+
+/* =========================================
+   LOAD WEBSITE CONTENT
+========================================= */
+
+loadVisiMisi();
 
 
 

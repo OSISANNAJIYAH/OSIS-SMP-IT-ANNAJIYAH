@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>Bidang OSIS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="bidang.css?v=3">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="bg-orb orb-one"></div>
+    <div class="bg-orb orb-two"></div>
+    <div class="bg-grid"></div>
+
+    <!-- LOADING -->
+    <div id="bidang-loading" class="loading-screen">
+        <div class="loading-box">
+            <div class="loading-spinner"></div>
+            <div class="loading-title">Memuat bidang</div>
+            <div class="loading-text">Menyiapkan informasi dan anggota...</div>
+        </div>
+    </div>
+
+    <main class="page-shell">
+
+        <a href="index.html#menu" class="back-link">
+            <span>←</span>
+            Kembali ke halaman utama
+        </a>
+
+        <!-- HERO -->
+        <section class="bidang-hero">
+            <div class="hero-shine"></div>
+            <div class="hero-content">
+                <div class="hero-image-wrap">
+                    <img id="bidang-foto" src="img/agama.png" alt="Bidang OSIS" class="hero-image">
+                </div>
+
+                <div class="hero-info">
+                    <div class="hero-label">BIDANG OSIS</div>
+                    <h1 id="bidang-nama">Memuat...</h1>
+                    <p id="bidang-deskripsi">Memuat informasi bidang...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEMBERS -->
+        <section class="members-section">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">STRUKTUR BIDANG</span>
+                    <h2>Anggota Bidang</h2>
+                </div>
+                <div id="member-count" class="member-count">0 anggota</div>
+            </div>
+
+            <div id="anggota-list" class="members-grid">
+                <!-- Diisi otomatis oleh bidang.js -->
+            </div>
+
+            <div id="anggota-empty" class="empty-state" hidden>
+                <div class="empty-icon">◌</div>
+                <h3>Belum ada anggota</h3>
+                <p>Data anggota bidang ini belum ditambahkan.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- POPUP -->
+    <div id="popup" class="member-popup" aria-hidden="true">
+        <div class="popup-backdrop"></div>
+        <div class="popup-card" role="dialog" aria-modal="true">
+            <button id="popup-close" class="popup-close" type="button" aria-label="Tutup">×</button>
+            <img id="popup-img" src="" alt="Foto anggota" class="popup-img">
+            <div class="popup-role" id="popup-role"></div>
+            <h3 id="popup-name"></h3>
+            <p id="popup-desc"></p>
+        </div>
+    </div>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script src="firebase-config.js?v=3"></script>
+    <script src="bidang.js?v=3"></script>
+
+</body>
+</html>

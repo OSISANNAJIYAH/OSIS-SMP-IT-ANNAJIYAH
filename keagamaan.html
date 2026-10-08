@@ -4,25 +4,27 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OSIS ANNAJIAH</title>
+
+    <title>OSIS ANNAJIYAH</title>
 
     <!-- Fonts -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
 
     <!-- Feather Icon -->
     <script src="https://unpkg.com/feather-icons"></script>
 
-
     <!-- My Style -->
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 
-<body>
+<body data-bidang-id="bidang1">
 
     <div id="particles-js"></div>
 
@@ -55,13 +57,8 @@
         </div>
 
     </header>
+
     <!-- Navbar End -->
-
-
-
-
-
-
 
 
     <!-- POPUP -->
@@ -72,7 +69,7 @@
 
             <span class="close" onclick="closePopup()">&times;</span>
 
-            <img id="popup-img" src="">
+            <img id="popup-img" src="" alt="Foto Anggota">
 
             <h2 id="popup-name"></h2>
 
@@ -85,57 +82,33 @@
     </div>
 
 
+    <!-- BIDANG -->
 
     <div class="row">
 
-        <!-- CARD 1 -->
         <section id="menu" class="menu">
 
-            <h2><span>Anggota Bidang</span> Keagamaan</h2>
+            <!-- Judul akan diisi otomatis oleh bidang.js -->
 
-            <p></p>
+            <h2 id="bidang-title">
+                <span>Anggota Bidang</span> Keagamaan
+            </h2>
 
-            <div class="row">
+            <p id="bidang-description"></p>
 
-                <!-- CARD 1 -->
-                <div class="menu-card" onclick="openPopup(
-    'img/siswa/alfi.jpeg',
-    'Muhammad Alfi',
-    'KETUA',
-    'Ketua bidang keagamaan yang bertanggung jawab pada kegiatan islami sekolah.'
-    )">
+            <!-- Anggota akan diisi otomatis oleh bidang.js -->
 
-                    <img src="img/siswa/siswa/alfi.png" alt="Ketua" class="menu-card-img">
+            <div class="row" id="anggota-container">
 
-                    <h3 class="ketua">KETUA</h3>
-
-                    <h3 class="menu-card-title">
-                        - Muhammad Alfi -
-                    </h3>
-
-                </div>
-
-                <!-- CARD 2 -->
-                <div class="menu-card" onclick="openPopup(
-    'img/siswa/al.jpeg',
-    'Muhammad Zuhdirrijal',
-    'ANGGOTA',
-    'Anggota bidang keagamaan yang aktif membantu kegiatan OSIS.'
-    )">
-
-                    <img src="img/siswa/siswa/al.png" alt="Anggota" class="menu-card-img">
-
-                    <h3 class="ketua">ANGGOTA</h3>
-
-                    <h3 class="menu-card-title">
-                        - Muhammad Zuhdirrijal -
-                    </h3>
-
-                </div>
+                <p id="bidang-loading">
+                    Memuat data anggota...
+                </p>
 
             </div>
 
         </section>
+
+    </div>
 
 
     <!-- FOOTER -->
@@ -162,6 +135,7 @@
 
             </div>
 
+
             <!-- MENU -->
 
             <div class="footer-box">
@@ -174,6 +148,7 @@
                 <a href="index.html#contact">Kontak</a>
 
             </div>
+
 
             <!-- SOSIAL -->
 
@@ -188,19 +163,21 @@
 
             </div>
 
+
             <!-- KONTAK -->
 
             <div class="footer-box">
 
                 <h3>Kontak</h3>
 
-                <p>Email :  xxxxxxxxxxxx@gmail.com</p>
+                <p>Email : xxxxxxxxxxxx@gmail.com</p>
                 <p>Telp : 08xxxxxxxxxx</p>
                 <p>Alamat : SMP IT Annajiyah</p>
 
             </div>
 
         </div>
+
 
         <!-- COPYRIGHT -->
 
@@ -215,70 +192,111 @@
     </footer>
 
 
-        <!-- Feather Icon -->
-        <script>
-            feather.replace();
-        </script>
+    <!-- Feather Icon -->
 
-        <!-- My Javascript -->
-        <script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
 
-        <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-        <script>
-            tsParticles.load("particles-js", {
+    <!-- Firebase -->
 
-                fpsLimit: 60,
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 
-                particles: {
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
-                    number: {
-                        value: 80
-                    },
 
-                    color: {
-                        value: "#38bdf8"
-                    },
+    <!-- Firebase Config -->
 
-                    links: {
-                        enable: true,
-                        color: "#38bdf8",
-                        distance: 150,
-                        opacity: 0.3
-                    },
+    <script src="firebase-config.js"></script>
 
-                    move: {
-                        enable: true,
-                        speed: 2
-                    },
 
-                    size: {
-                        value: 3
-                    },
+    <!-- My Javascript -->
 
-                    opacity: {
-                        value: 0.5
-                    }
+    <script src="script.js"></script>
+
+
+    <!-- tsParticles -->
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+
+    <script>
+
+        tsParticles.load("particles-js", {
+
+            fpsLimit: 60,
+
+            particles: {
+
+                number: {
+                    value: 80
+                },
+
+                color: {
+                    value: "#38bdf8"
+                },
+
+                links: {
+
+                    enable: true,
+
+                    color: "#38bdf8",
+
+                    distance: 150,
+
+                    opacity: 0.3
 
                 },
 
-                interactivity: {
+                move: {
 
-                    events: {
+                    enable: true,
 
-                        onHover: {
-                            enable: true,
-                            mode: "repulse"
-                        }
+                    speed: 2
+
+                },
+
+                size: {
+
+                    value: 3
+
+                },
+
+                opacity: {
+
+                    value: 0.5
+
+                }
+
+            },
+
+            interactivity: {
+
+                events: {
+
+                    onHover: {
+
+                        enable: true,
+
+                        mode: "repulse"
 
                     }
 
                 }
 
-            });
-        </script>
+            }
+
+        });
+
+    </script>
+
+
+    <!-- Dynamic Bidang -->
+
+    <script src="bidang.js"></script>
+
 
 </body>
-
 
 </html>

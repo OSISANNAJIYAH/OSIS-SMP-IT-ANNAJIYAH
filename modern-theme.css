@@ -1,0 +1,260 @@
+
+/* =========================================================
+   OSIS ANNAJIYAH - MODERN THEME OVERRIDES
+   IMPORTANT: Tidak menyentuh .navbar, .logo, .nav-menu,
+   atau .menu-btn agar navbar lama tetap sama.
+========================================================= */
+
+:root{
+    --primary:#38bdf8;
+    --primary-dark:#2563eb;
+    --bg:#020617;
+    --surface:rgba(15,23,42,.78);
+    --border:rgba(148,163,184,.15);
+    --text:#f8fafc;
+    --muted:#94a3b8;
+}
+
+/* BACKGROUND */
+body{
+    background:
+        radial-gradient(circle at 12% 10%,rgba(37,99,235,.13),transparent 28%),
+        radial-gradient(circle at 88% 55%,rgba(56,189,248,.08),transparent 25%),
+        linear-gradient(180deg,#020617,#07111f 55%,#020617);
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:55px 55px;
+    mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+
+/* WELCOME */
+.welcome-screen{
+    background:
+        radial-gradient(circle at 50% 25%,rgba(56,189,248,.18),transparent 30%),
+        linear-gradient(135deg,#020617,#0f172a 55%,#172554);
+}
+
+#nameInput{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(148,163,184,.2);
+    box-shadow:0 10px 40px rgba(0,0,0,.2);
+}
+
+#enterBtn{
+    background:linear-gradient(135deg,#38bdf8,#2563eb);
+    box-shadow:0 15px 40px rgba(37,99,235,.35);
+}
+
+/* HERO */
+.hero{
+    min-height:92vh;
+}
+
+.hero::before{
+    background:
+        linear-gradient(90deg,rgba(2,6,23,.94),rgba(2,6,23,.62),rgba(2,6,23,.25));
+}
+
+.hero::after{
+    background:linear-gradient(to top,#020617,transparent);
+}
+
+.hero .content{
+    max-width:900px;
+}
+
+.hero .content h1{
+    font-size:clamp(3.2rem,7vw,6.2rem);
+    letter-spacing:-3px;
+}
+
+.hero .content h1 span{
+    color:#38bdf8;
+    text-shadow:0 0 30px rgba(56,189,248,.45);
+}
+
+.hero .content p{
+    color:#cbd5e1;
+}
+
+.hero .content .cta{
+    background:linear-gradient(135deg,#38bdf8,#2563eb);
+    box-shadow:0 15px 40px rgba(37,99,235,.3);
+}
+
+/* RUNNING TEXT */
+.running-text{
+    background:linear-gradient(90deg,#0ea5e9,#2563eb,#0ea5e9);
+    box-shadow:0 8px 35px rgba(37,99,235,.16);
+}
+
+/* BIDANG */
+.menu{
+    padding-top:120px;
+    padding-bottom:100px;
+}
+
+.menu .row{
+    justify-content:center;
+    align-items:stretch;
+    gap:28px;
+    max-width:1250px;
+    margin:auto;
+}
+
+.menu .row .menu-card{
+    width:260px;
+    padding:22px;
+    background:linear-gradient(180deg,rgba(15,23,42,.9),rgba(15,23,42,.58));
+    border:1px solid rgba(148,163,184,.15);
+    border-radius:28px;
+    box-shadow:0 25px 70px rgba(0,0,0,.3);
+    transition:.4s;
+}
+
+.menu .row .menu-card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(56,189,248,.4);
+    box-shadow:0 25px 70px rgba(0,0,0,.42),0 0 30px rgba(56,189,248,.08);
+}
+
+.menu .row .menu-card img{
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    border-radius:24px;
+    margin:5px auto 18px;
+    border:1px solid rgba(255,255,255,.14);
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+}
+
+.menu .row .menu-card .menu-card-title{
+    color:#f8fafc;
+    min-height:52px;
+    line-height:1.5;
+}
+
+.menu-card-price{
+    padding:11px 20px;
+    border-radius:999px;
+    background:linear-gradient(135deg,#0ea5e9,#2563eb);
+    font-size:.9rem;
+    font-weight:700;
+}
+
+/* CONTACT */
+.contact-menu{
+    padding:120px 7% 100px;
+}
+
+.contact-title h1{
+    font-size:clamp(2.6rem,5vw,4rem);
+}
+
+.contact-title span{
+    color:#38bdf8;
+}
+
+.contact-title p,
+.contact-card p{
+    color:#94a3b8;
+}
+
+.contact-container{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    max-width:1200px;
+    margin:0 auto 55px;
+    gap:25px;
+}
+
+.contact-card{
+    background:linear-gradient(180deg,rgba(15,23,42,.88),rgba(15,23,42,.58));
+    border:1px solid rgba(148,163,184,.15);
+    border-radius:26px;
+    box-shadow:0 25px 70px rgba(0,0,0,.25);
+}
+
+.contact-card:hover{
+    border-color:rgba(56,189,248,.35);
+    transform:translateY(-9px);
+}
+
+.contact-card a,
+.contact-form button{
+    background:linear-gradient(135deg,#38bdf8,#2563eb);
+}
+
+.contact-form{
+    background:linear-gradient(180deg,rgba(15,23,42,.9),rgba(15,23,42,.62));
+    border:1px solid rgba(148,163,184,.15);
+    box-shadow:0 25px 70px rgba(0,0,0,.3);
+}
+
+.contact-form input,
+.contact-form textarea{
+    background:rgba(2,6,23,.65);
+    border:1px solid rgba(148,163,184,.15);
+}
+
+.google-map iframe{
+    border:1px solid rgba(148,163,184,.15)!important;
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+/* FOOTER */
+.footer{
+    background:
+        radial-gradient(circle at 50% 0%,rgba(37,99,235,.12),transparent 30%),
+        #020617;
+    border-top:1px solid rgba(148,163,184,.08);
+}
+
+.footer-glow{
+    background:rgba(56,189,248,.08);
+}
+
+.footer-box h2 span,
+.footer-box a:hover,
+.footer-bottom .alri{
+    color:#38bdf8;
+}
+
+/* UTILITY */
+.chat-toggle{
+    background:linear-gradient(135deg,#38bdf8,#2563eb);
+}
+
+.chat-box{
+    background:#0f172a;
+    border:1px solid rgba(148,163,184,.15);
+}
+
+@media(max-width:900px){
+    .contact-container{
+        grid-template-columns:1fr;
+        max-width:600px;
+    }
+}
+
+@media(max-width:768px){
+    .hero{
+        background-image:url('img/0.png');
+    }
+
+    .menu .row .menu-card{
+        width:min(100%,320px);
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+    }
+}

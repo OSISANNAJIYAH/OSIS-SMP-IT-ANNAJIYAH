@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dokumentasi.css">
+    <link rel="stylesheet" href="modern-theme.css">
 </head>
 
 
@@ -77,237 +78,32 @@
             <p>Album Kenangan Kegiatan Sekolah</p>
         </div>
 
-        <div class="book">
-
-    <!-- GALLERY -->
-
-
-
-
-
+        <div class="book" id="documentationBook">
 
             <!-- COVER -->
-
             <div class="page cover">
-
                 <div class="front">
                     <div class="cover-content">
                         <h1>OSIS BOOK</h1>
                         <p>SMP IT AN-NAJIYAH</p>
                     </div>
                 </div>
-
                 <div class="back">
                     <div class="page-content">
-                        <h2></h2>
-
-                        <p>
-                            
-                        </p>
+                        <h2>Dokumentasi OSIS</h2>
+                        <p>Album kenangan kegiatan dan aktivitas OSIS SMP IT An-Najiyah.</p>
                     </div>
                 </div>
-
             </div>
 
-            <!-- PAGE 1 -->
-
-            <div class="page">
-
+            <!-- Isi dokumentasi dibuat otomatis dari Firebase -->
+            <div id="dokumentasiLoading" class="page">
                 <div class="front">
                     <div class="page-content">
-
-                        <img src="img/dokumentasi/berbagi (1).jpeg">
-
-                        <h2>KEGIATAN BERBAGI TAKJIL PADA BULAN RAMADHAN</h2>
-
-                        <p>
-                            ....
-                        </p>
-
+                        <h2>Memuat dokumentasi...</h2>
+                        <p>Mohon tunggu sebentar.</p>
                     </div>
                 </div>
-
-                <div class="back">
-                    <div class="page-content">
-
-                        <img src="img/dokumentasi/berbagi (1).jpeg">
-
-                        <h2>KEGIATAN BERBAGI TAKJIL PADA BULAN RAMADHAN</h2>
-
-                        <p>
-                            Kompetisi antar kelas untuk
-                            mempererat solidaritas siswa.
-                        </p>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- PAGE 2 -->
-
-            <div class="page">
-
-                <div class="front">
-                    <div class="page-content">
-
-                        <img src="img/dokumentasi/berbagi (2).jpeg">
-
-                        <h2>KEGIATAN BERBAGI TAKJIL PADA BULAN RAMADHAN</h2>
-
-                        <p>
-                            ..........
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="back">
-                    <div class="page-content">
-
-                        <img src="img/siswa/dafa.jpeg">
-
-                        <h2>KEGIATAN BERBAGI TAKJIL PADA BULAN RAMADHAN</h2>
-
-                        <p>
-                            .........
-                        </p>
-
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="page">
-
-                <div class="front">
-                    <div class="page-content">
-
-                        <img src="img/dokumentasi/berbagi (3).jpeg">
-
-                        <h2>KEGIATAN BERBAGI TAKJIL PADA BULAN RAMADHAN</h2>
-
-                        <p>
-                            .........
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="back">
-                    <div class="page-content">
-
-                        <img src="img/siswa/dafa.jpeg">
-
-                        <h2>KEGIATAN BERBAGI TAKJIL PADA BULAN RAMADHAN</h2>
-
-                        <p>
-                            .......
-                        </p>
-
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="page">
-
-                <div class="front">
-                    <div class="page-content">
-
-                        <img src="img/dokumentasi/berbagi (4).jpeg">
-
-                        <h2>KEGIATAN BERBAGI TAKJIL PADA BULAN RAMADHAN</h2>
-
-                        <p>
-                            ............
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="back">
-                    <div class="page-content">
-
-                        <img src="img/siswa/fahri.jpeg">
-
-                        <h2>KEGIATAN BERBAGI TAKJIL PADA BULAN RAMADHAN</h2>
-
-                        <p>
-                            ..........
-                        </p>
-
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="page">
-
-                <div class="front">
-                    <div class="page-content">
-
-                        <img src="img/dokumentasi/berbagi (5).jpeg">
-
-                        <h2>KEGIATAN BERBAGI TAKJIL PADA BULAN RAMADHAN</h2>
-
-                        <p>
-                            .........
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="back">
-                    <div class="page-content">
-
-                        <img src="img/siswa/fahri.jpeg">
-
-                        <h2>KEGIATAN BERBAGI TAKJIL PADA BULAN RAMADHAN</h2>
-
-                        <p>
-                            ........
-                        </p>
-
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="page">
-
-                <div class="front">
-                    <div class="page-content">
-
-                        <img src="img/dokumentasi/berbagi (6).jpeg">
-
-                        <h2>KEGIATAN BERBAGI TAKJIL PADA BULAN RAMADHAN</h2>
-
-                        <p>
-                            ........
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="back">
-                    <div class="page-content">
-
-                        <img src="img/siswa/fahri.jpeg">
-
-                        <h2>KEGIATAN BERBAGI TAKJIL PADA BULAN RAMADHAN</h2>
-
-                        <p>
-                            ........
-                        </p>
-
-                    </div>
-                </div>
-
             </div>
 
         </div>
@@ -420,9 +216,13 @@
         feather.replace();
     </script>
 
-    <!-- My Javascript -->
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script src="firebase-config.js?v=2"></script>
 
-    <script src="dokumentasi.js"></script>
+    <!-- My Javascript -->
+    <script src="dokumentasi.js?v=2"></script>
     <script src="script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
