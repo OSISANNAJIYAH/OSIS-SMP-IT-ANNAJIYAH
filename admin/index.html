@@ -1,613 +1,1113 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OSIS ANNAJIAH</title>
-    <meta name="referrer" content="no-referrer">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Fonts -->
+    <title>Admin Panel - OSIS Annajiyah</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,700&display=swap" rel="stylesheet">
 
-    <!-- Feather Icon -->
-    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-
-    <!-- AOS Animation -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-
-    <!-- Remix Icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
-
-
-    <!-- My Style -->
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="visi-misi.css" />
-    <link rel="stylesheet" href="modern-theme.css">
+    <link rel="stylesheet" href="admin.css">
 </head>
-
 
 <body>
 
-    <div id="particles-js"></div>
+    <!-- =========================
+        LOGIN PAGE
+    ========================== -->
+
+    <main id="loginPage" class="login-page">
+
+        <div class="login-card">
+
+            <div class="login-logo">
+                <span>OSIS</span> ANNAJIYAH
+            </div>
+
+            <div class="login-icon">
+                🔐
+            </div>
+
+            <h1>Admin Panel</h1>
+
+            <p class="login-description">
+                Masuk untuk mengelola website OSIS SMP IT Annajiyah.
+            </p>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Admin
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Masukkan email admin"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Masukkan password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    id="loginButton"
+                    class="primary-button"
+                >
+                    Masuk ke Admin
+                </button>
+
+                <p
+                    id="loginMessage"
+                    class="message"
+                ></p>
+
+            </form>
+
+            <a
+                href="../index.html"
+                class="back-link"
+            >
+                ← Kembali ke website
+            </a>
+
+        </div>
+
+    </main>
 
 
-    <!-- WELCOME SCREEN -->
-    <div class="welcome-screen" id="welcomeScreen">
+    <!-- =========================
+            ADMIN DASHBOARD
+    ========================== -->
 
-        <div id="welcome-particles"></div>
+    <main
+        id="dashboardPage"
+        class="dashboard-page hidden"
+    >
 
-        <h1 class="typing-text">
-            Selamat Datang di Website Resmi OSIS SMP IT ANNAJIYAH
-        </h1>
+        <header class="dashboard-header">
 
-        <p class="welcome-text">
-            Masukkan nama terlebih dahulu untuk masuk
+            <div>
+
+                <div class="dashboard-logo">
+                    <span>OSIS</span> ANNAJIYAH
+                </div>
+
+                <p>
+                    Admin Dashboard
+                </p>
+
+            </div>
+
+            <button
+                id="logoutButton"
+                class="logout-button"
+            >
+                Keluar
+            </button>
+
+        </header>
+
+
+        <section class="dashboard-content">
+
+            <div class="welcome-card">
+
+                <div>
+
+                    <span class="welcome-label">
+                        SELAMAT DATANG
+                    </span>
+
+                    <h1>
+                        Panel Administrasi OSIS
+                    </h1>
+
+                    <p id="adminEmail"></p>
+
+                </div>
+
+                <div class="admin-badge">
+                    ADMIN
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                    MENU ADMIN
+            ========================== -->
+
+            <div class="section-title">
+
+                <span>
+                    PENGELOLAAN WEBSITE
+                </span>
+
+                <h2>
+                    Pilih bagian yang ingin dikelola
+                </h2>
+
+            </div>
+
+
+            <div class="admin-grid">
+
+                <!-- VISI MISI -->
+
+                <button
+                    class="admin-card"
+                    type="button"
+                    data-module="visi"
+                >
+
+                    <div class="admin-card-icon">
+                        🎯
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Visi & Misi
+                        </h3>
+
+                        <p>
+                            Mengubah isi visi dan misi organisasi.
+                        </p>
+
+                    </div>
+
+                    <span class="card-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- STRUKTUR -->
+
+                <button
+                    class="admin-card"
+                    type="button"
+                    data-module="struktur"
+                >
+
+                    <div class="admin-card-icon">
+                        👥
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Struktur Organisasi
+                        </h3>
+
+                        <p>
+                            Mengelola anggota, jabatan, dan bidang.
+                        </p>
+
+                    </div>
+
+                    <span class="card-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+<!-- BIDANG-BIDANG -->
+
+<button
+    class="admin-card"
+    type="button"
+    data-module="bidang"
+>
+
+    <div class="admin-card-icon">
+        🏫
+    </div>
+
+    <div>
+
+        <h3>
+            Bidang-Bidang OSIS
+        </h3>
+
+        <p>
+            Mengelola anggota dan informasi setiap bidang OSIS.
         </p>
 
-        <input type="text" id="nameInput" placeholder="Masukkan nama kamu...">
+    </div>
 
-        <button id="enterBtn">
-            Masuk
+    <span class="card-arrow">
+        →
+    </span>
+
+</button>
+
+
+                <!-- DOKUMENTASI -->
+
+                <button
+                    class="admin-card"
+                    type="button"
+                    data-module="dokumentasi"
+                >
+
+                    <div class="admin-card-icon">
+                        📸
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Dokumentasi
+                        </h3>
+
+                        <p>
+                            Menambahkan foto, judul, dan deskripsi.
+                        </p>
+
+                    </div>
+
+                    <span class="card-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- VOTING -->
+
+                <button
+                    class="admin-card"
+                    type="button"
+                    data-module="voting"
+                >
+
+                    <div class="admin-card-icon">
+                        🗳️
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Voting Ketua OSIS
+                        </h3>
+
+                        <p>
+                            Mengelola kandidat dan status voting.
+                        </p>
+
+                    </div>
+
+                    <span class="card-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- =========================
+     VISI & MISI EDITOR
+========================== -->
+
+<section
+    id="visiEditor"
+    class="editor-section hidden"
+>
+
+    <div class="editor-header">
+
+        <div>
+            <span class="editor-label">
+                EDITOR WEBSITE
+            </span>
+
+            <h2>
+                Visi & Misi
+            </h2>
+
+            <p>
+                Ubah isi Visi dan Misi yang akan ditampilkan
+                pada website OSIS Annajiyah.
+            </p>
+        </div>
+
+        <button
+            id="closeVisiEditor"
+            type="button"
+            class="close-editor-button"
+        >
+            Tutup
         </button>
 
     </div>
 
 
-    <!-- NAVBAR -->
+    <!-- VISI -->
 
-    <header class="navbar">
+    <div class="editor-card">
 
-        <div class="logo">
-            <span>OSIS</span> ANNAJIYAH
-        </div>
+        <label for="visiInput">
+            Visi OSIS
+        </label>
 
-        <nav class="nav-menu" id="navMenu">
+        <textarea
+            id="visiInput"
+            rows="5"
+            placeholder="Masukkan visi OSIS..."
+        ></textarea>
 
-            <a href="#home">Home</a>
-            <a href="#visi">Tentang</a>
-            <a href="#menu">Bidang</a>
-            <a href="struktur.html">Struktur Organisasi</a>
-            <a href="#contact">Kontak</a>
-            <a href="dokumentasi.html">Dokumentasi</a>
-            <a href="voting.html">Voting Ketua Osis</a>
-            <a href="admin/index.html">Home</a>
-
-
-        </nav>
-
-        <div class="menu-btn" id="menuBtn">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </div>
-
-    </header>
-    <!-- Navbar End -->
-
-
-
-
-    <!-- Cursor Glow -->
-    <div class="cursor-glow"></div>
-
-
-
-
-
-
-
-
-    <!-- Hero Section Start -->
-
-    <section class="hero" id="home">
-
-        <div class="gallery-overlay"></div>
-
-        <main class="content">
-
-            <h1>
-                OSIS SMP IT
-                <span>ANNAJIYAH</span>
-            </h1>
-
-            <p>
-                Organisasi siswa yang aktif, kreatif, disiplin,
-                dan berakhlakul karimah.
-            </p>
-
-            <a href="#tentang" class="cta">
-                Jelajahi Sekarang
-            </a>
-
-        </main>
-
-    </section>
-
-    <!-- Hero Section End -->
-
-
-
-
-
-
-
-
-
-
-    <div class="running-text">
-
-        <div class="running-wrapper">
-
-            <span>
-                📢 Selamat Datang di Website Resmi OSIS SMP IT Annajiyah •
-                Aktif • Kreatif • Disiplin • Berakhlakul Karimah •
-                Mari Bersama Membangun Generasi Hebat ✨
-            </span>
-
-        </div>
+        <p class="editor-hint">
+            Isi ini akan menggantikan teks Visi pada website.
+        </p>
 
     </div>
 
 
+    <!-- MISI -->
 
+    <div class="editor-card">
 
+        <label for="misiInput">
+            Misi OSIS
+        </label>
 
-    <!-- SECTION -->
-    <section class="visi-misi-section" id="visi">
+        <textarea
+            id="misiInput"
+            rows="14"
+            placeholder="Masukkan misi OSIS..."
+        ></textarea>
 
-        <div class="section-title" data-aos="fade-down">
-            <h1>Visi <span>&</span> Misi</h1>
-            <p>
-                Visi dan misi OSIS SMP IT Annajiyah sebagai
-                pedoman dalam membangun organisasi yang aktif,
-                islami, kreatif, dan inspiratif.
-            </p>
-        </div>
-
-        <div class="content-wrapper">
-
-            <!-- VISI -->
-            <div class="card visi-card" data-aos="fade-right">
-
-                <div class="card-icon">
-                    <i class="ri-eye-line"></i>
-                </div>
-
-                <h2>Visi OSIS</h2>
-
-                <p id="visi-text">
-                    terwujudnya OSIS yang islami kreatif dan jadi contoh baik untuk sekolah yang ramah aman nyaman
-                    dan
-                    menggembirakan.
-                </p>
-
-                <div class="glow"></div>
-            </div>
-
-            <!-- MISI -->
-            <div class="card misi-card" data-aos="fade-left">
-
-                <div class="card-icon">
-                    <i class="ri-rocket-2-line"></i>
-                </div>
-
-                <h2>Misi OSIS</h2>
-
-                <ul id="misi-list">
-                    <li>1. Memperkuat iman dan akhlak
-                        Contohnya sebagai pengurus anggota OSIS kita harus memberi contoh hadir tepat waktu dan
-                        selalu
-                        mengikuti program literasi membaca zdikir di setiap paginya</li>
-                    <li>2. Sekolah tanpa bertengkar
-                        Contohnya kita akan kampanyekan damai itu asik dan jadi agen perdamaian kalau ada masalah
-                        kita
-                        bantu
-                        cari jalan keluar baik-baik bukan dengan kekerasan Kita juga bisa punya kotak saran biar
-                        semua
-                        bisa
-                        cerita kalau ada masalah</li>
-                    <li>3. Mengembangkan bakat dan ide baru
-                        Contohnya mengikuti program ekstrakurikuler dari sekolah dan kita bisa bikin program bareng
-                        biar
-                        kita bisa sibuk sama hal positif</li>
-                    <li>4. Menjalin persahabatan
-                        Contohnya kita akan bikin acara yang bikin kita semua jadi akrab seperti kerja bakti atau
-                        lomba-lomba persahabatan biar kita semua merasa jadi keluarga </li>
-                    <li>5. Jadi suara teman-teman
-                        Contohnya kita akan jadi jembatan antara teman-teman sama guru dan sekolah, kita akan
-                        dengarkan
-                        semua masukan dan bantu cari solusi terbaik biar sekolah kita makin maju dan nyaman buat
-                        belajar</li>
-                </ul>
-
-                <div class="glow"></div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Menu Section start -->
-
-<section id="menu" class="menu">
-
-    <h2>
-        <span>Bidang Bidang</span> Osis
-    </h2>
-
-    <p></p>
-
-
-    <div
-        class="row"
-        id="bidang-index-container"
-    >
-
-        <p id="bidang-index-loading">
-            Memuat bidang...
+        <p class="editor-hint">
+            Setiap nomor misi sebaiknya dipisahkan dengan
+            baris kosong agar mudah dibaca.
         </p>
+
+    </div>
+
+
+    <!-- ACTION -->
+
+    <div class="editor-actions">
+
+        <button
+            id="saveVisiMisi"
+            type="button"
+            class="save-button"
+        >
+            Simpan Perubahan
+        </button>
+
+        <span
+            id="visiMisiStatus"
+            class="save-status"
+        ></span>
 
     </div>
 
 </section>
 
-<!-- Menu Section end -->
 
+<!-- =========================
+     BIDANG OSIS EDITOR
+========================== -->
+<section
+    id="bidangEditor"
+    class="editor-section hidden"
+>
 
-    <!-- CONTACT MENU -->
+    <div class="editor-header">
 
-    <section class="contact-menu" id="contact">
+        <div>
+            <span class="editor-label">
+                EDITOR WEBSITE
+            </span>
 
-        <div class="contact-title">
-
-            <h1>Hubungi <span>Kami</span></h1>
+            <h2>
+                Bidang-Bidang OSIS
+            </h2>
 
             <p>
-                Hubungi kami melalui media sosial atau kirim pesan
-                langsung kepada pengurus OSIS SMP IT Annajiyah.
+                Kelola bidang, anggota, jabatan, foto,
+                dan deskripsi OSIS SMP IT Annajiyah.
+            </p>
+        </div>
+
+        <button
+            id="closeBidangEditor"
+            type="button"
+            class="close-editor-button"
+        >
+            Tutup
+        </button>
+
+    </div>
+
+
+    <!-- TOMBOL TAMBAH BIDANG -->
+
+    <div class="editor-actions">
+
+        <button
+            id="addBidang"
+            type="button"
+            class="save-button"
+        >
+            + Tambah Bidang
+        </button>
+
+    </div>
+
+
+    <!-- SEMUA BIDANG AKAN DIBUAT OTOMATIS OLEH JAVASCRIPT -->
+
+    <div id="bidangList"></div>
+
+
+    <!-- STATUS -->
+
+    <div class="editor-actions">
+
+        <button
+            id="saveBidang"
+            type="button"
+            class="save-button"
+        >
+            Simpan Semua Perubahan
+        </button>
+
+        <span
+            id="bidangStatus"
+            class="save-status"
+        ></span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BIDANG EDITOR
+===================================================== -->
+
+<section id="bidangEditor" class="editor-section hidden">
+
+    ...
+    
+</section>
+
+
+<!-- =====================================================
+     DOKUMENTASI EDITOR
+===================================================== -->
+
+<section
+    id="dokumentasiEditor"
+    class="editor-section hidden"
+>
+
+    <div class="editor-header">
+
+        <div>
+
+            <span class="editor-label">
+                EDITOR WEBSITE
+            </span>
+
+            <h2>
+                Dokumentasi OSIS
+            </h2>
+
+            <p>
+                Kelola foto, judul, dan deskripsi dokumentasi
+                kegiatan OSIS SMP IT Annajiyah.
             </p>
 
         </div>
 
-        <div class="contact-container">
-
-            <!-- WHATSAPP -->
-
-            <div class="contact-card">
-
-                <div class="icon">📱</div>
-
-                <h2>WhatsApp</h2>
-
-                <p>Hubungi pengurus OSIS secara langsung.</p>
-
-                <a href="#">Hubungi</a>
-
-            </div>
-
-            <!-- INSTAGRAM -->
-
-            <div class="contact-card">
-
-                <div class="icon">📸</div>
-
-                <h2>Instagram</h2>
-
-                <p>Lihat dokumentasi dan kegiatan terbaru.</p>
-
-                <a href="https://www.instagram.com/osis_smpitannajiyah/">Kunjungi</a>
-
-            </div>
-
-            <!-- EMAIL -->
-
-            <div class="contact-card">
-
-                <div class="icon">✉️</div>
-
-                <h2>Email</h2>
-
-                <p>Kirim pertanyaan dan kritik saran.</p>
-
-                <a href="#">Kirim Email</a>
-
-            </div>
-
-        </div>
-
-        <!-- FORM -->
-
-        <div class="contact-form">
-
-            <h2>Kirim Pesan</h2>
-
-            <form id="waForm">
-
-                <input type="text" id="nama" placeholder="Nama Lengkap">
-
-                <input type="email" id="email" placeholder="Email">
-
-                <textarea id="pesan" placeholder="Tulis pesan..."></textarea>
-
-                <button type="submit">Kirim Pesan</button>
-
-            </form>
-
-        </div>
-
-
-        <!-- GOOGLE MAP -->
-
-        <div class="google-map">
-
-            <h2>Lokasi Sekolah</h2>
-
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.4419947178253!2d112.53298237349668!3d-3.38599754152314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e09ffe177a48cef%3A0xac72638dead771aa!2sSDIT%20An%20Najiyah!5e1!3m2!1sen!2sid!4v1779144077508!5m2!1sen!2sid"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-
-    <footer class="footer">
-
-        <!-- PARTICLE GLOW -->
-
-        <div class="footer-glow"></div>
-
-        <div class="footer-container">
-
-            <!-- BRAND -->
-
-            <div class="footer-box">
-
-                <h2>OSIS <span>ANNAJIYAH</span></h2>
-
-                <p>
-                    Organisasi siswa yang kreatif, aktif,
-                    islami, dan siap membangun sekolah
-                    yang lebih maju dan menyenangkan.
-                </p>
-
-            </div>
-
-            <!-- MENU -->
-
-            <div class="footer-box">
-
-                <h3>Menu</h3>
-
-                <a href="#home">Home</a>
-                <a href="#about">Tentang</a>
-                <a href="#menu">Bidang</a>
-                <a href="#contact">Kontak</a>
-
-            </div>
-
-            <!-- SOSIAL -->
-
-            <div class="footer-box">
-
-                <h3>Sosial Media</h3>
-
-                <a href="https://www.instagram.com/osis_smpitannajiyah/">Instagram</a>
-                <a href="#">TikTok</a>
-                <a href="#">YouTube</a>
-                <a href="#">WhatsApp</a>
-
-            </div>
-
-            <!-- KONTAK -->
-
-            <div class="footer-box">
-
-                <h3>Kontak</h3>
-
-                <p>Email : xxxxxxxxxxxx@gmail.com</p>
-                <p>Telp : 08xxxxxxxxxx</p>
-                <p>Alamat : SMP IT Annajiyah</p>
-
-            </div>
-
-        </div>
-
-        <!-- COPYRIGHT -->
-
-        <div class="footer-bottom">
+        <button
+            id="closeDokumentasiEditor"
+            type="button"
+            class="close-editor-button"
+        >
+            Tutup
+        </button>
+
+    </div>
+
+    <div class="editor-actions">
+
+        <button
+            id="addDokumentasi"
+            type="button"
+            class="save-button"
+        >
+            + Tambah Dokumentasi
+        </button>
+
+    </div>
+
+    <div
+        id="dokumentasiList"
+        class="dokumentasi-admin-list"
+    >
+
+        <div class="dokumentasi-empty">
+
+            <div>📸</div>
+
+            <h3>
+                Belum ada dokumentasi
+            </h3>
 
             <p>
-                © 2026 OSIS Annajiyah | Created By <a class="alri" href="https://alrifatih.github.io/portofolio-alri-fatih/">ALRIFATIH</a>
+                Klik tombol "Tambah Dokumentasi"
+                untuk menambahkan foto kegiatan.
             </p>
 
         </div>
 
-    </footer>
+    </div>
+
+    <div class="editor-actions">
+
+        <button
+            id="saveDokumentasi"
+            type="button"
+            class="save-button"
+        >
+            Simpan Semua Perubahan
+        </button>
+
+        <span
+            id="dokumentasiStatus"
+            class="save-status"
+        ></span>
+
+    </div>
+
+</section>
 
 
-    <!-- Feather Icon -->
-    <script>
-        feather.replace();
-    </script>
-
-<!-- My Javascript -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-
-<!-- AOS -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-<!-- FIREBASE -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
-
-<script src="firebase-config.js"></script>
-
-<script src="ai-ri.js?v=1"></script>
-
-<script src="bidang-home.js?v=1"></script>
 
 
-<!-- SCRIPT UTAMA -->
 
-<script src="index-bidang.js"></script>
+<!-- =====================================================
+     VOTING KETUA OSIS EDITOR
+===================================================== -->
 
-<script src="script.js"></script>
+<section id="votingEditor" class="editor-section hidden">
 
+    <div class="editor-header">
+        <div>
+            <span class="editor-label">EDITOR WEBSITE</span>
+            <h2>Voting Ketua OSIS</h2>
+            <p>
+                Kelola kandidat, status voting, hasil suara, dan reset suara.
+            </p>
+        </div>
 
-    <script>
-        tsParticles.load("particles-js", {
+        <button
+            id="closeVotingEditor"
+            type="button"
+            class="close-editor"
+        >
+            ✕ Tutup
+        </button>
+    </div>
 
-            fpsLimit: 60,
+    <!-- STATUS VOTING -->
+    <div class="editor-card">
+        <h3>⚙️ Pengaturan Voting</h3>
 
-            particles: {
+        <label class="admin-switch-row">
+            <input type="checkbox" id="votingDibuka">
+            <span>
+                <strong>Buka Voting</strong><br>
+                <small>Jika aktif, siswa dapat memberikan suara.</small>
+            </span>
+        </label>
 
-                number: {
-                    value: 80
-                },
+        <label class="admin-switch-row">
+            <input type="checkbox" id="votingTampilkanHasil">
+            <span>
+                <strong>Tampilkan Hasil</strong><br>
+                <small>Jika aktif, hasil suara terlihat di halaman voting.</small>
+            </span>
+        </label>
 
-                color: {
-                    value: "#38bdf8"
-                },
+        <div class="editor-actions">
+            <button
+                id="saveVotingConfig"
+                type="button"
+                class="save-button"
+            >
+                Simpan Pengaturan Voting
+            </button>
 
-                links: {
-                    enable: true,
-                    color: "#38bdf8",
-                    distance: 150,
-                    opacity: 0.3
-                },
+            <button
+                id="resetVoting"
+                type="button"
+                class="save-button"
+                style="background:#ef4444;"
+            >
+                🔄 Reset Semua Suara
+            </button>
 
-                move: {
-                    enable: true,
-                    speed: 2
-                },
+            <span id="votingConfigStatus" class="save-status"></span>
+        </div>
+    </div>
 
-                size: {
-                    value: 3
-                },
+    <!-- STATISTIK -->
+    <div class="editor-card">
+        <h3>📊 Rekap Suara</h3>
+        <div
+            id="votingAdminStats"
+            style="
+                display:grid;
+                grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+                gap:15px;
+            "
+        ></div>
+    </div>
 
-                opacity: {
-                    value: 0.5
-                }
+    <!-- KANDIDAT -->
+    <div class="editor-actions">
+        <button
+            id="addKandidatVoting"
+            type="button"
+            class="save-button"
+        >
+            + Tambah Kandidat
+        </button>
+    </div>
 
-            },
+    <div id="votingKandidatList"></div>
 
-            interactivity: {
+    <div class="editor-actions">
+        <button
+            id="saveVotingKandidat"
+            type="button"
+            class="save-button"
+        >
+            💾 Simpan Semua Kandidat
+        </button>
 
-                events: {
+        <span id="votingKandidatStatus" class="save-status"></span>
+    </div>
 
-                    onHover: {
-                        enable: true,
-                        mode: "repulse"
-                    }
+</section>
 
-                }
+<style>
+    .admin-switch-row {
+        display:flex;
+        align-items:flex-start;
+        gap:12px;
+        margin:14px 0;
+        cursor:pointer;
+    }
 
-            }
+    .admin-switch-row input {
+        width:20px;
+        height:20px;
+        margin-top:2px;
+    }
 
-        });
+    .voting-admin-card {
+        display:grid;
+        grid-template-columns:180px 1fr;
+        gap:24px;
+        margin-bottom:22px;
+    }
 
+    .voting-admin-photo {
+        width:100%;
+        aspect-ratio:1;
+        object-fit:cover;
+        border-radius:18px;
+        background:rgba(255,255,255,.06);
+        border:1px solid rgba(255,255,255,.1);
+    }
 
-        if (typeof tsParticles !== "undefined") {
+    .voting-admin-fields {
+        display:grid;
+        gap:10px;
+    }
 
-            tsParticles.load("welcome-particles", {
+    .voting-admin-fields input,
+    .voting-admin-fields textarea {
+        width:100%;
+    }
 
-                background: {
-                    color: {
-                        value: "#0f172a"
-                    }
-                },
+    .voting-photo-status {
+        font-size:.85rem;
+        color:#94a3b8;
+    }
 
-                particles: {
+    .voting-stat {
+        padding:18px;
+        border-radius:16px;
+        background:rgba(255,255,255,.05);
+        border:1px solid rgba(255,255,255,.08);
+    }
 
-                    number: {
-                        value: 60
-                    },
+    .voting-stat strong {
+        display:block;
+        font-size:1.7rem;
+        margin-top:6px;
+    }
 
-                    color: {
-                        value: "#38bdf8"
-                    },
-
-                    links: {
-                        enable: true,
-                        color: "#38bdf8",
-                        distance: 140,
-                        opacity: 0.3
-                    },
-
-                    move: {
-                        enable: true,
-                        speed: 1.5
-                    },
-
-                    size: {
-                        value: 3
-                    },
-
-                    opacity: {
-                        value: 0.5
-                    }
-
-                }
-
-            });
-
+    @media(max-width:700px) {
+        .voting-admin-card {
+            grid-template-columns:1fr;
         }
-    </script>
+    }
+</style>
+    
 
 
 
-    <script>
-        document.getElementById("waForm").addEventListener("submit", function (e) {
 
-            e.preventDefault();
+            <!-- =========================
+            INFORMASI
+            ========================== -->
 
-            let nama = document.getElementById("nama").value;
-            let email = document.getElementById("email").value;
-            let pesan = document.getElementById("pesan").value;
+            <!-- =========================
+        STRUKTUR ORGANISASI EDITOR
+========================== -->
 
-            let nomorWA = "6281545460553";
+<section id="strukturEditor" class="editor-section hidden">
 
-            let text = `Halo OSIS SMP IT Annajiyah
+    <div class="editor-header">
 
-Nama: ${nama}
-Email: ${email}
+        <div>
+            <span class="editor-label">
+                EDITOR WEBSITE
+            </span>
 
-Pesan:
-${pesan}`;
+            <h2>
+                Struktur Organisasi
+            </h2>
 
-            let url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(text)}`;
+            <p>
+                Ubah data pengurus OSIS SMP IT Annajiyah.
+            </p>
+        </div>
 
-            window.open(url, "_blank");
+        <button
+            id="closeStrukturEditor"
+            type="button"
+            class="close-editor-button"
+        >
+            Tutup
+        </button>
 
-        });
-    </script>
+    </div>
+
+
+    <!-- KETUA -->
+
+    <div class="editor-card">
+
+        <h3>Ketua OSIS</h3>
+
+        <label for="ketuaNama">
+            Nama
+        </label>
+
+        <input
+            type="text"
+            id="ketuaNama"
+            placeholder="Nama Ketua OSIS"
+        >
+
+        <label for="ketuaJabatan">
+            Jabatan
+        </label>
+
+        <input
+            type="text"
+            id="ketuaJabatan"
+            placeholder="Jabatan"
+        >
+
+        <label for="ketuaFoto">
+            Foto
+        </label>
+
+        <input
+            type="text"
+            id="ketuaFoto"
+            placeholder="Contoh: img/siswa/dafa.jpeg"
+        >
+
+        <label for="ketuaDeskripsi">
+            Deskripsi
+        </label>
+
+        <textarea
+            id="ketuaDeskripsi"
+            rows="4"
+            placeholder="Deskripsi Ketua OSIS..."
+        ></textarea>
+
+    </div>
+
+
+    <!-- WAKIL -->
+
+    <div class="editor-card">
+
+        <h3>Wakil Ketua</h3>
+
+        <label for="wakilNama">
+            Nama
+        </label>
+
+        <input
+            type="text"
+            id="wakilNama"
+            placeholder="Nama Wakil Ketua"
+        >
+
+        <label for="wakilJabatan">
+            Jabatan
+        </label>
+
+        <input
+            type="text"
+            id="wakilJabatan"
+            placeholder="Jabatan"
+        >
+
+        <label for="wakilFoto">
+            Foto
+        </label>
+
+        <input
+            type="text"
+            id="wakilFoto"
+            placeholder="Contoh: img/siswa/gibran 1.png"
+        >
+
+        <label for="wakilDeskripsi">
+            Deskripsi
+        </label>
+
+        <textarea
+            id="wakilDeskripsi"
+            rows="4"
+            placeholder="Deskripsi Wakil Ketua..."
+        ></textarea>
+
+    </div>
+
+
+    <!-- SEKRETARIS -->
+
+    <div class="editor-card">
+
+        <h3>Sekretaris</h3>
+
+        <label for="sekretarisNama">
+            Nama
+        </label>
+
+        <input
+            type="text"
+            id="sekretarisNama"
+            placeholder="Nama Sekretaris"
+        >
+
+        <label for="sekretarisJabatan">
+            Jabatan
+        </label>
+
+        <input
+            type="text"
+            id="sekretarisJabatan"
+            placeholder="Jabatan"
+        >
+
+        <label for="sekretarisFoto">
+            Foto
+        </label>
+
+        <input
+            type="text"
+            id="sekretarisFoto"
+            placeholder="Contoh: img/siswa/arief.jpeg"
+        >
+
+        <label for="sekretarisDeskripsi">
+            Deskripsi
+        </label>
+
+        <textarea
+            id="sekretarisDeskripsi"
+            rows="4"
+            placeholder="Deskripsi Sekretaris..."
+        ></textarea>
+
+    </div>
+
+
+    <!-- BENDAHARA -->
+
+    <div class="editor-card">
+
+        <h3>Bendahara</h3>
+
+        <label for="bendaharaNama">
+            Nama
+        </label>
+
+        <input
+            type="text"
+            id="bendaharaNama"
+            placeholder="Nama Bendahara"
+        >
+
+        <label for="bendaharaJabatan">
+            Jabatan
+        </label>
+
+        <input
+            type="text"
+            id="bendaharaJabatan"
+            placeholder="Jabatan"
+        >
+
+        <label for="bendaharaFoto">
+            Foto
+        </label>
+
+        <input
+            type="text"
+            id="bendaharaFoto"
+            placeholder="Contoh: img/siswa/ihsan 1.png"
+        >
+
+        <label for="bendaharaDeskripsi">
+            Deskripsi
+        </label>
+
+        <textarea
+            id="bendaharaDeskripsi"
+            rows="4"
+            placeholder="Deskripsi Bendahara..."
+        ></textarea>
+
+    </div>
+
+
+    <!-- ACTION -->
+
+    <div class="editor-actions">
+
+        <button
+            id="saveStruktur"
+            type="button"
+            class="save-button"
+        >
+            Simpan Struktur
+        </button>
+
+        <span
+            id="strukturStatus"
+            class="save-status"
+        ></span>
+
+    </div>
+
+</section>
+
+            <div
+                id="moduleMessage"
+                class="module-message"
+            >
+
+                <div class="module-message-icon">
+                    ℹ️
+                </div>
+
+                <div>
+
+                    <strong>
+                        Admin berhasil masuk.
+                    </strong>
+
+                    <p>
+                        Modul pengelolaan akan kita aktifkan
+                        satu per satu pada tahap berikutnya.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+            FIREBASE
+    ========================== -->
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+
+
+    <!-- Firebase Config milik website utama -->
+
+    <script src="../firebase-config.js"></script>
+
+
+    <!-- Admin JavaScript -->
+
+    <script src="admin.js?v=5"></script>
+
+    <script src="dokumentasi-admin.js"></script>
+
+    <script src="voting.js"></script>
 
 </body>
-
 
 </html>
